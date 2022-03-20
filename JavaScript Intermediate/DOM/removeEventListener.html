@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Event Elemen</title>
+</head>
+
+<body>
+
+    <div id="test-event" style="background-color:pink;width:120px;height:20px;padding:40px;">
+        Mouse Over Me!
+    </div>
+    <button onclick="removeHandler()">Remove Event</button>
+
+    <script>
+        const boxPink = document.getElementById("test-event")
+        function mouseOver() {
+            boxPink.innerHTML = "Hai!"; // mengganti text ketika mouse diarahkan ke dalam box
+            boxPink.style.backgroundColor = "blue"; // mengganti warna background ketika mouse diarahkan ke dalam box
+        }
+
+        function mouseOut() {
+            boxPink.innerHTML = "Mouse Over Me!"; // mengganti text ketika mouse diarahkan ke luar box
+            boxPink.style.backgroundColor = "pink"; // mengganti warna background ketika mouse diarahkan ke luar box
+        }
+
+        boxPink.addEventListener("mouseover", mouseOver);
+        boxPink.addEventListener("mouseout", mouseOut);
+
+        function removeHandler() {
+            boxPink.removeEventListener("mouseover", mouseOver);
+            boxPink.removeEventListener("mouseout", mouseOut);
+        }
+    </script>
+</body>
+
+</html>
